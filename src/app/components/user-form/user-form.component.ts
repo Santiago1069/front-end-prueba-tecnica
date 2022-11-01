@@ -1,7 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { User } from '../../models/User';
 import { ActivatedRoute, Router } from '@angular/router'
-
+import {Md5} from 'ts-md5';
 import { UserService } from '../../services/user.service'
 
 @Component({
@@ -62,6 +62,17 @@ export class UserFormComponent implements OnInit {
       },
       err => console.log(err)
     )
+  }
+
+  showGravatarUrl(email?: String) {
+    if(email != null) {
+        const email_md5 = Md5.hashStr(email.toString())
+        this.user.gravatar = email_md5
+        return `https://www.gravatar.com/avatar/${email_md5}?d=robohash&f=y&s=200`
+       
+    } else {
+      return 'https://www.gravatar.com/avatar?f=y'
+    }
   }
 
 }

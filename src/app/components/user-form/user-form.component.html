@@ -6,12 +6,6 @@
                 <h3 class="form-label  d-flex justify-content-center">New User</h3>
 
                 <div class="input-group mb-3">
-                    <label class="input-group-text">Add the link</label>
-                    <input type="text" name="gravatar" [(ngModel)]="user.gravatar" class="form-control"
-                        placeholder="Gravatar" aria-label="Gravatar" aria-describedby="gravatar" autocomplete="off">
-                </div>
-
-                <div class="input-group mb-3">
                     <input type="text" name="name" [(ngModel)]="user.name" class="form-control" placeholder="Name"
                         aria-label="Name" aria-describedby="name" autocomplete="off">
                 </div>
@@ -23,8 +17,8 @@
                 </div>
 
                 <div class="input-group mb-3">
-                    <input type="email" name="email" [(ngModel)]="user.email" class="form-control" placeholder="Email"
-                        aria-label="Email" aria-describedby="email" autocomplete="off">
+                    <input type="text" name="email" [(ngModel)]="user.email" class="form-control" placeholder="Email"
+                        aria-label="Email" aria-describedby="email" autocomplete="off" (focusout)="showGravatarUrl(user.email)">
                     <span class="input-group-text" id="email_example">@gmail.com</span>
                 </div>
 
@@ -99,7 +93,7 @@
 
 <div class="col-md-5 ">
     <div class="card card-body text-center">
-        <img [src]="user.gravatar == '' ? 'https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg' : user.gravatar" class="card-img-top" alt="...">
+        <img [src]="user.gravatar == null ? 'https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg' : showGravatarUrl(user.email)" class="card-img-top" alt="...">
         <div class="card-body text-center">
             <h5 class="card-title">USER INFORMATION</h5>
         </div>

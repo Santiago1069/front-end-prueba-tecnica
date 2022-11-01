@@ -9,8 +9,6 @@ import { UserService  } from '../../services/user.service'
 })
 export class UserListComponent implements OnInit {
 
-  @HostBinding('class') classes = 'row;'
-
   users: Array<User> = Array();
 
   constructor(private userService: UserService) { }
