@@ -1,1 +1,114 @@
-<p>user-form works!</p>
+<div class="col-md-5 ">
+    <div class="card">
+        <div class="card-body">
+            <form action="">
+
+                <h3 class="form-label  d-flex justify-content-center">New User</h3>
+
+                <div class="input-group mb-3">
+                    <label class="input-group-text">Add the link</label>
+                    <input type="text" name="gravatar" [(ngModel)]="user.gravatar" class="form-control"
+                        placeholder="Gravatar" aria-label="Gravatar" aria-describedby="gravatar" autocomplete="off">
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" name="name" [(ngModel)]="user.name" class="form-control" placeholder="Name"
+                        aria-label="Name" aria-describedby="name" autocomplete="off">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="username_logo">@</span>
+                    <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username"
+                        aria-describedby="username" autocomplete="off" [(ngModel)]="user.username">
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="email" name="email" [(ngModel)]="user.email" class="form-control" placeholder="Email"
+                        aria-label="Email" aria-describedby="email" autocomplete="off">
+                    <span class="input-group-text" id="email_example">@gmail.com</span>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" name="phone" class="form-control" placeholder="Phone" aria-label="Phone"
+                        aria-describedby="phone" autocomplete="off" [(ngModel)]="user.phone">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="website_example">https://example.com</span>
+                    <input type="url" name="website" class="form-control" placeholder="Website" aria-label="Website"
+                        aria-describedby="website" autocomplete="off" [(ngModel)]="user.website">
+                </div>
+
+                <label class="form-label">Address</label>
+
+                <div class="input-group mb-3">
+                    <input type="text" name="street" class="form-control" aria-describedby="street" placeholder="Street"
+                        aria-label="Street" autocomplete="off" [(ngModel)]="user.address.street">
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" name="suite" class="form-control" aria-describedby="suite" placeholder="Suite"
+                        aria-label="Suite" autocomplete="off" [(ngModel)]="user.address.suite">
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" name="city" [(ngModel)]="user.address.city" class="form-control" aria-describedby="city"
+                        placeholder="City" aria-label="City" autocomplete="off">
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" name="zipcode" class="form-control" aria-describedby="zipcode"
+                        placeholder="Zipcode" aria-label="Zipcode" autocomplete="off" [(ngModel)]="user.address.zipcode">
+                </div>
+
+                <label class="form-label">Geo</label>
+
+                <div class="input-group mb-3">
+                    <input type="text" name="lat" class="form-control" aria-describedby="lat" placeholder="Latitude"
+                        aria-label="Latitude" autocomplete="off" [(ngModel)]="user.address.geo.lat">
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" name="lng" class="form-control" aria-describedby="lng" placeholder="Longitude"
+                        aria-label="Longitude" autocomplete="off" [(ngModel)]="user.address.geo.lng">
+                </div>
+
+                <label class="form-label">Company</label>
+
+                <div class="input-group mb-3">
+                    <input type="text" name="name_company" [(ngModel)]="user.company.name" class="form-control"
+                        aria-describedby="name_company" placeholder="Name" aria-label="Name" autocomplete="off">
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" name="catchphrase" class="form-control" [(ngModel)]="user.company.catchPhrase" aria-describedby="catchphrase"
+                        placeholder="Catchphrase" aria-label="Catchphrase" autocomplete="off">
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" name="bs" class="form-control" [(ngModel)]="user.company.bs" aria-describedby="bs"
+                        placeholder="Balanced ScoreCard" aria-label="Balanced ScoreCard" autocomplete="off">
+                </div>
+
+                <button class="btn btn-success input-group mb-3" (click)="edit ? updateUser : saveNewUser()">Save</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-5 ">
+    <div class="card card-body text-center">
+        <img [src]="user.gravatar == '' ? 'https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg' : user.gravatar" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+            <h5 class="card-title">USER INFORMATION</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Nombre: {{user.name == '' ? 'Write a name' :  user.name}}</li>
+            <li class="list-group-item">Email: {{user.email == '' ? 'Write a email' : user.email}}</li>
+            <li class="list-group-item">Ciudad: {{user.address.city == '' ? 'Write a city' : user.address.city}}</li>
+            <li class="list-group-item">Compañia: {{user.company.name == '' ? 'Write a name company' : user.company.name}}</li>
+
+        </ul>
+    </div>
+</div>
