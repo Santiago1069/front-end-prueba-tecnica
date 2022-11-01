@@ -55,6 +55,7 @@ export class UserFormComponent implements OnInit {
 
   updateUser(){
     const this_user_id : String = this.user.id !== undefined ? this.user.id : '';
+    console.log(this_user_id);
     this.userService.updateUser(this_user_id, this.user).subscribe(
       res => {
         console.log(res);
